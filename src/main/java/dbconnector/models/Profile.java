@@ -20,11 +20,11 @@ public class Profile implements Model {
 
     @Override
     public String getValues() {
-         return "('" + id + "', "
-                + "'" + job_title + "', "
-                + "'" + department + "', "
-                + "'" + company + "', "
-                + "'" + skill + "', "
-                + "'" + username + "')";
+         return "('" + getId() + "', "
+                + "'" + getJob_title() + "', "
+                + "'" + getDepartment() + "', "
+                + "'" + getCompany() + "', "
+                + "'" + getSkill() + "', "
+                + "'" + getUsername() + "')";
     }
 }

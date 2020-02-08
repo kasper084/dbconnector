@@ -19,11 +19,11 @@ public class Account implements Model {
 
     @Override
     public String getValues() {
-        return "('" + id + "', "
-                + "'" + firs_name + "', "
-                + "'" + last_name + "', "
-                +"'" + city + "', "
-                + "'" + gender + "', "
-                + "'" + username + "')";
+        return "('" + getId() + "', "
+                + "'" + getFirs_name() + "', "
+                + "'" + getLast_name() + "', "
+                +"'" + getCity() + "', "
+                + "'" + getGender() + "', "
+                + "'" + getUsername() + "')";
     }
 }
