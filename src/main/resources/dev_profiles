@@ -20,6 +20,8 @@ create table profiles_table
     skill      text
 );
 
+--psql -U username dbname < dbexport.sql
+
 alter table profiles_table
     rename to profiles;
 
