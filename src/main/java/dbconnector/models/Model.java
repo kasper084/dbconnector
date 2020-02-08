@@ -1,7 +1,7 @@
 package dbconnector.models;
 
-import lombok.Data;
-
-@Data
 public interface Model {
+    String getFields();
+
+    String getValues();
 }

@@ -2,10 +2,7 @@ package dbconnector.utils;
 
 import dbconnector.models.Model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBUtil {
     private static final String USER = "postgres";
@@ -16,18 +13,28 @@ public class DBUtil {
 
     private Connection connect() {
         try {
-           connection = DriverManager.getConnection(URL,USER, Decoder.decode(PASSWORD));
+            connection = DriverManager.getConnection(URL, USER, Decoder.decode(PASSWORD));
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return connection;
     }
 
-    public void create(Model model) {
-        try (Connection connection = connect()){
-            String sql = "ins";
+    public Model create(String table, Model model) {
+        try (Connection connection = connect()) {
+            String sql = "insert into"
+                    + table + " " + model.getFields()
+                    + " values " + model.getValues() + ";";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("successful");
+        return model;
+    }
+
+    public Model delete(String table, Model model) {
+        return model;
     }
 }
