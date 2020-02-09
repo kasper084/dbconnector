@@ -1,7 +1,9 @@
 package dbconnector.models;
 
 public interface Model {
-    String getFields();
+    String getFieldsNames();
 
     String getValues();
+
+    Integer getId();
 }

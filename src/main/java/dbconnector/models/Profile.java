@@ -6,7 +6,7 @@ import lombok.NonNull;
 
 @Data
 public class Profile implements Model {
-    private @NonNull int id;
+    private @NonNull Integer id;
     private @NonNull String username;
     private String job_title;
     private String department;
@@ -14,7 +14,7 @@ public class Profile implements Model {
     private String skill;
 
     @Override
-    public String getFields() {
+    public String getFieldsNames() {
         return "(id, username, job_title, department, company, skill)";
     }
 

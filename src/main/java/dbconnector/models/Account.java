@@ -1,11 +1,13 @@
 package dbconnector.models;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Data
+@NoArgsConstructor
 public class Account implements Model {
-    private @NonNull int id;
+    private @NonNull Integer id;
     private String firs_name;
     private String last_name;
     private String city;
@@ -13,7 +15,7 @@ public class Account implements Model {
     private @NonNull String username;
 
     @Override
-    public String getFields() {
+    public String getFieldsNames() {
         return "(id, first_name, last_name, city, gender, username)";
     }
 
