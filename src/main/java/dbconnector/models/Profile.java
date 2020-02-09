@@ -22,10 +22,11 @@ public class Profile implements Model {
     @Override
     public String getValues() {
         return "('" + getId() + "', "
+                + "'" + getUsername() + "', "
                 + "'" + getJob_title() + "', "
                 + "'" + getDepartment() + "', "
                 + "'" + getCompany() + "', "
-                + "'" + getSkill() + "', "
-                + "'" + getUsername() + "')";
+                + "'" + getSkill() + "')";
+
     }
 }

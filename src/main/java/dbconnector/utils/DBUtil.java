@@ -50,9 +50,9 @@ public class DBUtil {
         return models;
     }
 
-    public void update(String table, String column, String newData, Integer id) {
-        String query = String.format("update %s set %s = '%s' where id = %d;",
-                table, column, newData, id);
+    public void update(String table, String column, String oldData, String newData, Integer id) {
+        String query = String.format("update %s set %s = replace(%s, '%s', '%s') where id = %d;"
+                , table, column, column, oldData, newData, id);
         queryExecutor(query);
     }
 
