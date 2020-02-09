@@ -1,18 +1,17 @@
 package dbconnector.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 @Data
-@NoArgsConstructor
+@AllArgsConstructor
 public class Account implements Model {
-    private @NonNull Integer id;
-    private String firs_name;
+    private Integer id;
+    private String first_name;
     private String last_name;
     private String city;
     private String gender;
-    private @NonNull String username;
+    private String username;
 
     @Override
     public String getFieldsNames() {
@@ -22,9 +21,9 @@ public class Account implements Model {
     @Override
     public String getValues() {
         return "('" + getId() + "', "
-                + "'" + getFirs_name() + "', "
+                + "'" + getFirst_name() + "', "
                 + "'" + getLast_name() + "', "
-                +"'" + getCity() + "', "
+                + "'" + getCity() + "', "
                 + "'" + getGender() + "', "
                 + "'" + getUsername() + "')";
     }

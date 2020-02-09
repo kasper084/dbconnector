@@ -1,13 +1,14 @@
 package dbconnector.models;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NonNull;
 
 @Data
+@AllArgsConstructor
 public class Profile implements Model {
-    private @NonNull Integer id;
-    private @NonNull String username;
+    private Integer id;
+    private String username;
     private String job_title;
     private String department;
     private String company;
@@ -20,7 +21,7 @@ public class Profile implements Model {
 
     @Override
     public String getValues() {
-         return "('" + getId() + "', "
+        return "('" + getId() + "', "
                 + "'" + getJob_title() + "', "
                 + "'" + getDepartment() + "', "
                 + "'" + getCompany() + "', "
