@@ -33,12 +33,9 @@ public class DBUtil {
     }
 
     @SneakyThrows
-    public Model read(String table, Model model) {
+    public void read(String table) {
         String query = String.format("select * from %s where id = %d;"
                 , table, enterId());
-        ResultSet resultSet = getStatement(query).executeQuery();
-        model = (Model) resultSet.getObject(id);
-        return model;
     }
 
     public void update(String table, Model model) {
@@ -51,6 +48,7 @@ public class DBUtil {
     }
 
     private int enterId() {
+        System.out.println("Enter id");
         try {
             id = scanner.nextInt();
         } catch (InputMismatchException i) {
@@ -61,16 +59,10 @@ public class DBUtil {
     }
 
     @SneakyThrows
-    private PreparedStatement getStatement(String query) {
-        PreparedStatement preparedStatement;
-        try (Connection connection = connect()) {
-            preparedStatement = connection.prepareStatement(query);
-        }
-        return preparedStatement;
-    }
-
-    @SneakyThrows
     private void executeQuery(String query) {
-        getStatement(query).executeUpdate();
+        try (Connection connection = connect()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.executeUpdate();
+        }
     }
 }
